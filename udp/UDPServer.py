@@ -4,7 +4,7 @@ local_ip = "192.168.0.11"
 local_port = 614
 buffer_size = 1024
 
-msg_from_server = "Hello UDP Client"
+msg_from_server = "Hello UDP Client----hellohello"
 bytes_to_send = str.encode(msg_from_server)
 
 UDP_server_socket = socket.socket(family = socket.AF_INET, type = socket.SOCK_DGRAM)
@@ -12,12 +12,12 @@ UDP_server_socket = socket.socket(family = socket.AF_INET, type = socket.SOCK_DG
 UDP_server_socket.bind((local_ip, local_port))
 
 print("UDP server up and listening")
-
+c = 0
 while(True):
     bytes_address_pair = UDP_server_socket.recvfrom(buffer_size)
     message = bytes_address_pair[0]
     address = bytes_address_pair[1]
-
+    bytes_to_send = str.encode(input())
     client_msg = "Message from Client:{}".format(message)
     client_ip = "Client IP Address:{}".format(address)
 
