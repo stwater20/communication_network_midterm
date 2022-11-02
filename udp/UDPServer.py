@@ -17,7 +17,7 @@ while(True):
     bytes_address_pair = UDP_server_socket.recvfrom(buffer_size)
     message = bytes_address_pair[0]
     address = bytes_address_pair[1]
-    bytes_to_send = str.encode(input())
+    bytes_to_send = str.encode("")
     client_msg = "Message from Client:{}".format(message)
     client_ip = "Client IP Address:{}".format(address)
 
