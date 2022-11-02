@@ -1,0 +1,12 @@
+Flags: 0x012 (SYN, ACK)
+    000. .... .... = Reserved: Not set
+    ...0 .... .... = Accurate ECN: Not set
+    .... 0... .... = Congestion Window Reduced: Not set
+    .... .0.. .... = ECN-Echo: Not set
+    .... ..0. .... = Urgent: Not set
+    .... ...1 .... = Acknowledgment: Set
+    .... .... 0... = Push: Not set
+    .... .... .0.. = Reset: Not set
+    .... .... ..1. = Syn: Set
+    .... .... ...0 = Fin: Not set
+    [TCP Flags: ·······A··S·]

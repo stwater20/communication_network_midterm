@@ -1,0 +1,50 @@
+Frame 438: 58 bytes on wire (464 bits), 58 bytes captured (464 bits) on interface en0, id 0
+    Section number: 1
+    Interface id: 0 (en0)
+        Interface name: en0
+        Interface description: Wi-Fi
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Nov  2, 2022 20:02:53.684877000 CST
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1667390573.684877000 seconds
+    [Time delta from previous captured frame: 0.000935000 seconds]
+    [Time delta from previous displayed frame: 0.903112000 seconds]
+    [Time since reference or first frame: 23.437607000 seconds]
+    Frame Number: 438
+    Frame Length: 58 bytes (464 bits)
+    Capture Length: 58 bytes (464 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:udp:data]
+    [Coloring Rule Name: UDP]
+    [Coloring Rule String: udp]
+Ethernet II, Src: Apple_0d:cb:ee (3c:06:30:0d:cb:ee), Dst: IntelCor_f4:73:1a (c0:b8:83:f4:73:1a)
+    Destination: IntelCor_f4:73:1a (c0:b8:83:f4:73:1a)
+    Source: Apple_0d:cb:ee (3c:06:30:0d:cb:ee)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 192.168.0.11, Dst: 192.168.0.81
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+    Total Length: 44
+    Identification: 0x06be (1726)
+    000. .... = Flags: 0x0
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 64
+    Protocol: UDP (17)
+    Header Checksum: 0xf256 [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 192.168.0.11
+    Destination Address: 192.168.0.81
+User Datagram Protocol, Src Port: 614, Dst Port: 60410
+    Source Port: 614
+    Destination Port: 60410
+    Length: 24
+    Checksum: 0xab13 [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 85]
+    [Timestamps]
+    UDP payload (16 bytes)
+Data (16 bytes)
+    Data: 48656c6c6f2055445020436c69656e74
+    [Length: 16]
