@@ -8,9 +8,10 @@ success = []
 def receive(socket, signal):
     while signal:
         try:
-            data = socket.recv(buffer_size)
-            success.append(str(data.decode("utf-8")))
-            print(str(data.decode("utf-8")))
+            pass
+            # data = socket.recv(buffer_size)
+            # success.append(str(data.decode("utf-8")))
+            # print(str(data.decode("utf-8")))
         except:
             print("You have been disconnected from the server")
             print(len(success))
@@ -37,6 +38,11 @@ receiveThread.start()
 
 #Send data to server
 #str.encode is used to turn the string message into bytes so it can be sent across the network
-while True:
-    message = input()
-    sock.sendall(str.encode(message))
+count = 0
+with open (r'./tcp_file/client/file.txt', 'r', encoding = 'utf-8') as file:
+    new_line = file.readline()
+    while new_line is not None and new_line != '':
+        print(count)
+        sock.send(str.encode('{} {}'.format(count, new_line)))
+        count +=1
+        new_line = file.readline()
