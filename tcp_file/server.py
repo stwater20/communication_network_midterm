@@ -37,11 +37,12 @@ class Client(threading.Thread):
                 break
             if data != "":
                 rec_content = str(data.decode("utf-8")).split()
+                print(rec_content)
                 rec_num = rec_content[0]
                 rec_str = rec_content[1]
-                with open('./server/file.txt', 'a', encoding = 'utf-8') as of:
+                with open('./tcp_file/server/file.txt', 'a', encoding = 'utf-8') as of:
                     of.write(rec_str + '\n')
-                print("ID " + str(self.id) + ": " + str(data.decode("utf-8")))
+                # print("ID " + str(self.id) + ": " + str(data.decode("utf-8")))
                 for client in connections:
                     if client.id != self.id:
                         client.socket.sendall(rec_num)
@@ -64,7 +65,7 @@ def main():
     #Create new server socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((host, port))
-    sock.listen(5)
+    sock.listen(1)
 
     #Create new thread to wait for connections
     newConnectionsThread = threading.Thread(target = newConnections, args = (sock,))
