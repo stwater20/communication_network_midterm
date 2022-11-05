@@ -16,6 +16,7 @@ class Client(threading.Thread):
         self.id = id
         self.name = name
         self.signal = signal
+        self.buffer_size = 1024
     
     def __str__(self):
         return str(self.id) + " " + str(self.address)
@@ -28,17 +29,22 @@ class Client(threading.Thread):
     def run(self):
         while self.signal:
             try:
-                data = self.socket.recv(32)
+                data = self.socket.recv(self.buffer_size)
             except:
                 print("Client " + str(self.address) + " has disconnected")
                 self.signal = False
                 connections.remove(self)
                 break
             if data != "":
+                rec_content = str(data.decode("utf-8")).split()
+                rec_num = rec_content[0]
+                rec_str = rec_content[1]
+                with open('./server/file.txt', 'a', encoding = 'utf-8') as of:
+                    of.write(rec_str + '\n')
                 print("ID " + str(self.id) + ": " + str(data.decode("utf-8")))
                 for client in connections:
                     if client.id != self.id:
-                        client.socket.sendall(data)
+                        client.socket.sendall(rec_num)
 
 #Wait for new connections
 def newConnections(socket):

@@ -1,16 +1,20 @@
 import socket
 import threading
 import sys
-
+buffer_size = 1024
 #Wait for incoming data from server
 #.decode is used to turn the message in bytes to a string
+success = []
 def receive(socket, signal):
     while signal:
         try:
-            data = socket.recv(32)
+            data = socket.recv(buffer_size)
+            success.append(str(data.decode("utf-8")))
             print(str(data.decode("utf-8")))
         except:
             print("You have been disconnected from the server")
+            print(len(success))
+            print(success)
             signal = False
             break
 
